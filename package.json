@@ -12,12 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "helmet": "^4.6.0"
-=======
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
@@ -32,7 +26,6 @@
     "postgres": "^1.0.2",
     "sqlite3": "^5.0.2",
     "supertest": "^6.1.6"
->>>>>>> 409e07a68fc609a46b7fa5a3e25027a6ae9c1246
   },
   "devDependencies": {
     "eslint": "^8.3.0",
