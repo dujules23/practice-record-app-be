@@ -1,10 +1,11 @@
-import _Login from "./forms/Login";
-
+import Login from "./forms/Login";
+import Home from "./Home";
 
 
 
 
 
 export {
-  _Login as Login
+  Login,
+  Home
 }
