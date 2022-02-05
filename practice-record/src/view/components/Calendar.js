@@ -31,15 +31,68 @@ function Calendar () {
   };
 
   const renderDays = () => {
+    const dateFormat = "EEEE";
+    const days = [];
+    let startDate = dateFns.startOfWeek(currentMonth);
     
+    for (let i = 0; i < 7; i++) {
+      days.push(
+        <div className="col col-center" key={i}>
+          {dateFns.format(dateFns.addDays(startDate, i), dateFormat)}
+        </div>
+    );
+  }
+
+  return <div className="days row">{days}</div>;
   };
 
   const renderCells = () => {
-    
-  };
+    // const { currentMonth, selectedDate }  = useState(new Date());
+    const monthStart = dateFns.startOfMonth(currentMonth);
+    const monthEnd = dateFns.endOfMonth(monthStart);
+    const startDate = dateFns.startOfWeek(monthStart);
+    const endDate = dateFns.endOfWeek(monthEnd);
+
+    const dateFormat = "d";
+    const rows = [];
+    let days = [];
+    let day = startDate;
+    let formattedDate = "";
+    while (day <= endDate) {
+    for (let i = 0; i < 7; i++) {
+      formattedDate = dateFns.format(day, dateFormat);
+      const cloneDay = day;
+      days.push(
+        <div
+          className={`col cell ${
+            !dateFns.isSameMonth(day, monthStart)
+            ? "disabled"
+            : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
+          }`}
+        key={day}
+        onClick={() => onDateClick(dateFns.parse(cloneDay))}
+      >
+        <span className="number">{formattedDate}</span>
+        <span className="bg">{formattedDate}</span>
+      </div>
+    );
+    day = dateFns.addDays(day, 1);
+  }
+  rows.push(
+    <div className="row" key={day}>
+      {days}
+    </div>
+  );
+  days = [];
+}
+return <div className="body">{rows}</div>;
+};
+
+
 
   const onDateClick = day => {
-
+    setSelectedDate({selectedDate: day})
+    console.log("date selected")
   };
 
   const nextMonth = () => {
