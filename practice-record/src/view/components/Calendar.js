@@ -27,7 +27,7 @@ function Calendar () {
         <div className="icon">chevron_right</div>
       </div>
     </div>
-  );
+    );
   };
 
   const renderDays = () => {
@@ -42,8 +42,7 @@ function Calendar () {
         </div>
     );
   }
-
-  return <div className="days row">{days}</div>;
+    return <div className="days row">{days}</div>;
   };
 
   const renderCells = () => {
@@ -70,13 +69,13 @@ function Calendar () {
             : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
           }`}
         key={day}
-        onClick={() => onDateClick(dateFns.parse(cloneDay))}
+        onClick={() => onDateClick(dateFns.parse(cloneDay, "yyyy-MM-dd", new Date()))}
       >
         <span className="number">{formattedDate}</span>
         <span className="bg">{formattedDate}</span>
       </div>
     );
-    day = dateFns.addDays(day, 1);
+      day = dateFns.addDays(day, 1);
   }
   rows.push(
     <div className="row" key={day}>
@@ -84,15 +83,14 @@ function Calendar () {
     </div>
   );
   days = [];
-}
-return <div className="body">{rows}</div>;
+  }
+  return <div className="body">{rows}</div>;
 };
 
 
 
-  const onDateClick = day => {
-    setSelectedDate({selectedDate: day})
-    console.log("date selected")
+  const onDateClick = () => {
+    setSelectedDate(selectedDate)
   };
 
   const nextMonth = () => {
