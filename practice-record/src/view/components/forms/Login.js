@@ -84,7 +84,7 @@ function LoginForm (props) {
           {err.password.length > 0 ? <p>{err.password}</p> : null}
         </div>
         <div>
-          <button type="submit" disable={!isValid}>Log In</button>
+          <button type="submit" disabled={!isValid}>Log In</button>
         </div>
       </form>
     </div>
