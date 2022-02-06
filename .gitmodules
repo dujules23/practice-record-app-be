@@ -1,0 +1,3 @@
+[submodule "practice-record/practice-record-app"]
+	path = practice-record/practice-record-app
+	url = https://github.com/dujules23/practice-record-app.git
