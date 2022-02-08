@@ -62,6 +62,7 @@ function LoginForm (props) {
         </div>
         <div>
           <input
+          name="username"
           type="text"
           placeholder="username"
           id="username"
@@ -76,6 +77,7 @@ function LoginForm (props) {
         </div>
         <div>
           <input
+          name="password"
           type="password"
           placeholder="password"
           id="password"
