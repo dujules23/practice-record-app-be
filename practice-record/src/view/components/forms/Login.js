@@ -6,6 +6,11 @@ import { useForm } from "react-hook-form";
 
 import {yupResolver} from "@hookform/resolvers/yup"
 
+const initialValues =  {
+  username: "",
+  password: ""
+}
+
 const schema = yup.object().shape({
   username: yup.string().required("User Name is Required"),
   password: yup.string().required("Not a Valid Password").min(5)
@@ -13,14 +18,19 @@ const schema = yup.object().shape({
 
 function LoginForm (props) {
 
+  const [loginState, setLoginState] = useState({
+    username: "",
+    password: ""
+  })
 
-  const { register, handleSubmit, formState: { errors }} = useForm({
+  const { register, reset, handleSubmit, formState: { errors }} = useForm({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => console.log(data)
-
-  console.log(errors)
+  const onSubmit = (data) => {
+    reset();
+    console.log(data)
+  }
 
   return(
     <div>
