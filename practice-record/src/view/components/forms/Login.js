@@ -6,65 +6,25 @@ import { useForm } from "react-hook-form";
 
 import {yupResolver} from "@hookform/resolvers/yup"
 
-const Schema = yup.object().shape({
+const schema = yup.object().shape({
   username: yup.string().required("User Name is Required"),
   password: yup.string().required("Not a Valid Password").min(5)
-})
+});
 
 function LoginForm (props) {
 
 
-  const { register, handleSubmit, errors } = useForm({})
+  const { register, handleSubmit, formState: { errors }} = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = (data) => console.log(data)
-  // const [loginState, setloginState] = useState(
-  //   {
-  //     username: "",
-  //     password: ""
-  //   }
-  // );
 
-  // const [err, setErr] = useState(
-  //   {
-  //   username: "",
-  //   password: ""
-  //   }
-  // );
-  
-
-  // const [isValid, setIsValid] = useState(true);
-  
-  
-  // Function for form submission
-
-  // Validation function
-
-  // const validate = (e) => {
-  //   yup.reach(Schema, e.target.name)
-  //     .validate(e.target.value)
-  //     .then( valid => {
-  //       setErr({
-  //         ...err, [e.target.name]: ""
-  //       })
-  //       setIsValid(valid);
-  //     })
-  //     .catch( error => {
-  //       setErr({
-  //         ...err, [e.target.name]: error.errors[0]
-  //       })
-  //     })
-  // };
-
-  // const inputChange = (e) => {
-  //   e.persist();
-  //   validate(e);
-  //   setloginState({...loginState, [e.target.name]: e.target.value})
-  // };
-
+  console.log(errors)
 
   return(
     <div>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         {content.inputs.map((input, key) => {
           return(
           <div key={key}>
@@ -76,13 +36,16 @@ function LoginForm (props) {
               name={input.name} 
               className="input" 
               type={input.type}
-              {...register(`${input.name}`)}
+              {...register(`${input.name}`, {required: true})}
               />
             </p>
+          <p>{errors[input.name]?.message}</p>
           </div>
+          
           );
+          
         })}
-        <button className="btn" type="submit">Submit</button>
+       <button className="btn" type="submit">Submit</button> 
       </form>
     </div>
   );
