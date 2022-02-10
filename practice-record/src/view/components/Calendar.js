@@ -107,12 +107,14 @@ function Calendar () {
   };
 
   return(
-    <div className="calendar">
-      {renderHeader()}
-      {renderDays()}
-      {renderCells()}
+    <div>
+      <div className="calendar">
+        {renderHeader()}
+        {renderDays()}
+        {renderCells()}
+      </div>
     </div>
-  );
+  )
 };
 
 
