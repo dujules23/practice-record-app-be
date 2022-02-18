@@ -2,7 +2,7 @@ import React from "react";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-// import Chart from './Chart';
+import Chart from './Chart';
 
 
 
@@ -21,7 +21,7 @@ function PointDashboard () {
                     height: 240,
                   }}
                 >
-                  {/* <Chart /> */}
+                  <Chart />
                 </Paper>
               </Grid>
               {/* Current Badge */}
