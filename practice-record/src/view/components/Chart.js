@@ -23,9 +23,8 @@ function Chart() {
 
   return (
     <React.Fragment>
-      {/* <Title>Today</Title> */}
       <ResponsiveContainer>
-      <ComposedChart
+        <ComposedChart
           width={400}
           height={400}
           data={data}
@@ -41,7 +40,7 @@ function Chart() {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="minutes" barSize={20} fill="#413ea0" />
+          <Bar dataKey="minutes" barSize={20} fill="#1a8fff" />
           <Line type="monotone" dataKey="minutes" stroke="#ff7300" />
         </ComposedChart>
       </ResponsiveContainer>

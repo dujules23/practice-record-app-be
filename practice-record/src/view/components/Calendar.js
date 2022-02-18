@@ -3,6 +3,7 @@ import * as dateFns from "date-fns";
 
 import './Calendar.css';
 import PointDashboard from "./PointDashboard";
+import DateModal from './DateModal';
 
 
 function Calendar () {
@@ -93,6 +94,9 @@ function Calendar () {
 
   const onDateClick = () => {
     setSelectedDate(selectedDate)
+    return (
+      <DateModal />
+    )
   };
 
   const nextMonth = () => {

@@ -22,6 +22,7 @@ function PointDashboard () {
                   }}
                 >
                   <Chart />
+                  <div>Total Time This Week:</div>
                 </Paper>
               </Grid>
               {/* Current Badge */}
@@ -39,6 +40,7 @@ function PointDashboard () {
               </Grid>
             </Grid>
           </Container>
+        
   );
 };
 
