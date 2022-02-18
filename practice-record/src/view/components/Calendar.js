@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import * as dateFns from "date-fns";
 
-import './Calendar.css'
+import './Calendar.css';
+import PointDashboard from "./PointDashboard";
 
 
 function Calendar () {
@@ -113,6 +114,7 @@ function Calendar () {
         {renderDays()}
         {renderCells()}
       </div>
+      <PointDashboard />
     </div>
   )
 };
